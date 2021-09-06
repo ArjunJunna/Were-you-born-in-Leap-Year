@@ -30,13 +30,7 @@ function hideMessage() {
 
 function toCheckForLeapYear(number) {
   var year = Number(number.slice('0', '4'));
-  if (year % 400 === 0) {
-    success();
-  }
-  if (year % 100 === 0) {
-    success();
-  }
-  if (year % 4 === 0) {
+  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
     success();
   } else {
     failure();
