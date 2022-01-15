@@ -4,8 +4,8 @@ const output = document.querySelector('#output');
 const reset = document.querySelector('#reset');
 const message = document.querySelector('.message');
 
-hideMessage();
-btn.addEventListener('click', function () {
+
+btn.addEventListener('click', ()=>{
   let number = birthDate.value.replaceAll('-', '');
   if (number === '') {
     showMessage('Please Select Your DateOfBirth');
@@ -14,21 +14,21 @@ btn.addEventListener('click', function () {
   }
 });
 
-reset.addEventListener('click', function () {
+reset.addEventListener('click', ()=> {
   birthDate.value = '';
   output.innerText = '';
   hideMessage();
 });
 
-function showMessage(msg) {
+const showMessage=msg=>{
   message.innerText = msg;
   message.style.display = 'block';
 }
-function hideMessage() {
-  message.style.display = 'none';
-}
 
-function toCheckForLeapYear(number) {
+const hideMessage=()=> message.style.display = 'none';
+
+
+const toCheckForLeapYear=number=>{
   var year = Number(number.slice('0', '4'));
   if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
     success();
@@ -36,11 +36,14 @@ function toCheckForLeapYear(number) {
     failure();
   }
 }
-function success() {
-  output.innerText =
-    'Congrats you were born in a leap year✨✨✨. Please do share this JS app on your social media..';
+
+const success=()=>{
+  output.innerText =`Congrats you were born in a leap year✨✨✨. 
+                     Please do share this JS app on your social media..`;
 }
-function failure() {
-  output.innerText =
-    'Sorry you were not born in a leap year. Better luck at your next birth😔😔😔...';
+
+const failure=()=>{
+  output.innerText =`Sorry you were not born in a leap year. Better luck at your next birth😔😔😔...`;
 }
+
+hideMessage();
